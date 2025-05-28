@@ -1,7 +1,7 @@
 
 # Nigerian Agricultural Produce Classifier 🌾
-
-This project classifies images of Nigerian agricultural produce — **beans, groundnut, maize, and millet** — using deep learning models (ResNet and EfficientNet). It includes modular code for data loading, training, evaluation, and deployment via Gradio.
+This my submission for the Capstone project which is part of the requirement for the completion of the **ArewaDs DeepLearning Program Cohort 2**. 
+This project classifies images of Nigerian agricultural produce, namely: **beans, groundnut, maize, and millet**, using deep learning models (ResNet and EfficientNet). It includes modular code for data loading, training, evaluation, and deployment via Gradio.
 
 ---
 
@@ -90,7 +90,7 @@ python main.py --model efficientnet --epochs 15 --batch_size 64 --lr 0.0005 --da
 python app.py
 ```
 
-It will provide a public link you can share for testing the model.
+It will provide a public link you can click on to view and test the application.
 
 ---
 
