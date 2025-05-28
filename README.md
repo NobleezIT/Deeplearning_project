@@ -1,6 +1,6 @@
 
 # Nigerian Agricultural Produce Classifier 🌾
-This my submission for the Capstone project which is part of the requirement for the completion of the **ArewaDs DeepLearning Program Cohort 2**. 
+This is my submission for the Capstone project which is part of the requirements for the completion of the **ArewaDs DeepLearning Program Cohort 2**. 
 
 This project classifies images of Nigerian agricultural produce, namely: **beans, groundnut, maize, and millet**, using deep learning models (ResNet and EfficientNet). It includes modular code for data loading, training, evaluation, and deployment via Gradio.
 
