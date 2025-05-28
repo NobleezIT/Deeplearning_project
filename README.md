@@ -36,7 +36,7 @@ produce_classifier/
 
 ## 📦 Setup
 
-To see the workflow and the complete setup you can check my workflow [here]("https://github.com/NobleezIT/Deeplearning_project/blob/main/Executionfile.ipynb")
+To see the workflow and the complete setup you can check my workflow [here](https://github.com/NobleezIT/Deeplearning_project/blob/main/Executionfile.ipynb)
 
 
 1. **Clone the repository**
