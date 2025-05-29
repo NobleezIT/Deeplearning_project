@@ -42,7 +42,7 @@ To see the workflow and the complete setup you can check my workflow [here](http
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/produce_classifier.git
+git clone https://github.com/NobleezIT/produce_classifier.git
 cd produce_classifier
 ```
 
