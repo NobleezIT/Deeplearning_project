@@ -10,7 +10,7 @@ This project classifies images of Nigerian agricultural produce — namely **bea
 
 ```
 
-produce\_classifier/
+Produce\_classifier/
 │
 ├── app.py                      # Streamlit app interface
 ├── main.py                     # Entry script for training & evaluation
@@ -42,8 +42,8 @@ To see the complete workflow, check my notebook [here](https://github.com/Noblee
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/NobleezIT/Deeplearning_project.git
-cd Deeplearning_project
+git clone https://github.com/NobleezIT/Produce_classifier.git
+cd Produce_classifier
 ````
 
 2. **Install dependencies**:
