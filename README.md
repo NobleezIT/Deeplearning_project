@@ -91,7 +91,7 @@ python main.py --model efficientnet --epochs 15 --batch_size 64 --lr 0.0005 --da
 
 The project has been deployed using Streamlit for interactive testing. You can try the app here:
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-green?logo=streamlit)]([https://your-streamlit-link.streamlit.app](https://appuceclassifier-iwm7gakz5j2frwqxyhbunp.streamlit.app/)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-green?logo=streamlit)]([https://your-streamlit-link.streamlit.app](https://appuceclassifier-iwm7gakz5j2frwqxyhbunp.streamlit.app/])
 
 2. **Run the Streamlit app**:
 
