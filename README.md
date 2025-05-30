@@ -1,60 +1,59 @@
-
 # Nigerian Agricultural Produce Classifier 🌾
-This is my submission for the Capstone project which is part of the requirements for the completion of the **ArewaDs DeepLearning Program Cohort 2**. 
 
-This project classifies images of Nigerian agricultural produce, namely: **beans, groundnut, maize, and millet**, using deep learning models (ResNet and EfficientNet). It includes modular code for data loading, training, evaluation, and deployment via Gradio.
+This is my submission for the Capstone project which is part of the requirements for the completion of the **ArewaDS DeepLearning Program Cohort 2**.
+
+This project classifies images of Nigerian agricultural produce — namely **beans, groundnut, maize, and millet** — using deep learning models (ResNet and EfficientNet). It includes modular code for data loading, training, evaluation, and deployment via **Streamlit**.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-produce_classifier/
+
+produce\_classifier/
 │
-├── app.py                      # Gradio app interface
+├── app.py                      # Streamlit app interface
 ├── main.py                     # Entry script for training & evaluation
 ├── requirements.txt            # Dependencies
 ├── README.md                   # This file
 │
 ├── data/
-│   └── split_dataset/          # Training, validation, and test folders (see download instructions below)
+│   └── split\_dataset/          # Training, validation, and test folders (see download instructions below)
 │
 ├── models/
-│   ├── resnet_model.py
-│   └── efficientnet_model.py
+│   ├── resnet\_model.py
+│   └── efficientnet\_model.py
 │
-├── saved_models/               # Stores best model weights (.pth)
+├── saved\_models/               # Stores best model weights (.pth)
 │
 └── utils/
-    ├── dataloader.py
-    ├── train.py
-    ├── evaluate.py
-    └── predictions.py
-```
+├── dataloader.py
+├── train.py
+├── evaluate.py
+└── predictions.py
+
+````
 
 ---
 
 ## 📦 Setup
 
-To see the workflow and the complete setup you can check my workflow [here](https://github.com/NobleezIT/Deeplearning_project/blob/main/Executionfile.ipynb)
+To see the complete workflow, check my notebook [here](https://github.com/NobleezIT/Deeplearning_project/blob/main/Executionfile.ipynb).
 
-
-1. **Clone the repository**
-
+1. **Clone the repository**:
 ```bash
 git clone https://github.com/NobleezIT/produce_classifier.git
 cd produce_classifier
-```
+````
 
-2. **Install dependencies**
+2. **Install dependencies**:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Download the dataset**
-
-Download the split dataset from [Google Drive](https://drive.google.com/file/d/1Q2VE5lTBEd_-0BnVUBZLatOYqc-WDznn/view?usp=sharing):
+3. **Download the dataset**:
+   Download the split dataset from [Google Drive](https://drive.google.com/file/d/1Q2VE5lTBEd_-0BnVUBZLatOYqc-WDznn/view?usp=sharing):
 
 * Go to the link above.
 * Click **Download**.
@@ -88,19 +87,31 @@ python main.py --model efficientnet --epochs 15 --batch_size 64 --lr 0.0005 --da
 
 ---
 
-## 🖼️ Gradio App (Local Deployment)
+## 🎨 Deployment with Streamlit
+
+We provide a **Streamlit app** to interactively test the model.
+
+1. **Install Streamlit** (if you haven’t already):
 
 ```bash
-python app.py
+pip install streamlit
 ```
 
-It will provide a public link you can click on to view and test the application.
+2. **Run the Streamlit app**:
+
+```bash
+streamlit run app.py
+```
+
+It will launch a web interface where you can upload images and see predictions!
 
 ---
 
 ## 📌 Notes
 
-* All model weights are saved to `saved_models/`
-* TensorBoard logs are saved in the `logs/` directory
+* All **model weights** are saved in `saved_models/`.
+* **TensorBoard logs** are saved in the `logs/` directory.
+* The app depends on the saved model weights (`best_resnet.pth` or `best_efficientnet.pth`).
 
 ---
+

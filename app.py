@@ -1,63 +1,67 @@
-"""
-This module launches a Gradio app for classifying images of Nigerian agricultural produce 
-(beans, groundnut, maize, millet) using pre-trained ResNet and EfficientNet models.
-"""
-
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-import gradio as gr
+import streamlit as st
 import torch
 from PIL import Image
+import torchvision.transforms as transforms
+import os
+
 from models.resnet_model import get_resnet
 from models.efficientnet_model import get_efficientnet
-from utils.predictions import predict_image
+# from utils.dataloader import get_class_names
 
-# List of class names corresponding to produce categories
+# Set up device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Constants
+MODEL_PATHS = {
+    "ResNet": "saved_models/best_resnet.pth",
+    "EfficientNet": "saved_models/best_efficientnet.pth"
+}
+# DATA_DIR = "data/split_dataset"
+IMG_SIZE = 224
+
+# Transform definition
+transform = transforms.Compose([
+    transforms.Resize((IMG_SIZE, IMG_SIZE)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
+
+# Load model and class names
+@st.cache_resource
+def load_model(model_name, num_classes):
+    if model_name == "ResNet":
+        model = get_resnet(num_classes)
+    else:
+        model = get_efficientnet(num_classes)
+    model.load_state_dict(torch.load(MODEL_PATHS[model_name], map_location=device))
+    model.to(device)
+    model.eval()
+    return model
+
+# Load class names
+# class_names = get_class_names(DATA_DIR)
+
 class_names = ['beans', 'groundnut', 'maize', 'millet']
 
-# Load pre-trained ResNet model
-resnet_model = get_resnet(len(class_names))
-resnet_model.load_state_dict(torch.load('saved_models/best_resnet.pth', map_location='cpu'))
-resnet_model.eval()
 
-# Load pre-trained EfficientNet model
-efficientnet_model = get_efficientnet(len(class_names))
-efficientnet_model.load_state_dict(torch.load('saved_models/best_efficientnet.pth', map_location='cpu'))
-efficientnet_model.eval()
+# UI
+st.title("🧠 Nigerian Produce Classifier")
+st.markdown("Upload an image of **Beans**, **Groundnut**, **Maize**, or **Millet** to classify it.")
 
-def classify_image(img, model_name):
-    """
-    Classifies an input image using the selected model.
+model_choice = st.selectbox("Choose Model", ["ResNet", "EfficientNet"])
+uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
-    Args:
-        img (PIL.Image): The input image to classify.
-        model_name (str): Model choice ("ResNet" or "EfficientNet").
+if uploaded_file:
+    image = Image.open(uploaded_file).convert("RGB")
+    st.image(image, caption="Uploaded Image", use_container_width=True)
 
-    Returns:
-        tuple: A dictionary containing predicted label and confidence, and the input image.
-    """
-    model = resnet_model if model_name == "ResNet" else efficientnet_model
-    label, confidence = predict_image(model, img, class_names)
-    return {"Predicted": label, "Confidence": f"{confidence:.2f}"}, img
+    # Preprocess and predict
+    input_tensor = transform(image).unsqueeze(0).to(device)
+    model = load_model(model_choice, len(class_names))
+    with torch.no_grad():
+        outputs = model(input_tensor)
+        probs = torch.nn.functional.softmax(outputs, dim=1)
+        confidence, prediction = torch.max(probs, 1)
 
-# Define Gradio interface
-gui = gr.Interface(
-    fn=classify_image,
-    inputs=[
-        gr.Image(type="pil"),
-        gr.Radio(choices=["ResNet", "EfficientNet"], label="Choose Model", value="ResNet")
-    ],
-    outputs=["json", "image"],
-    title="Nigerian Produce Classifier"
-)
-
-def launch():
-    """
-    Launches the Gradio application with sharing enabled.
-    """
-    gui.launch(share=True)
-
-if __name__ == '__main__':
-    launch()
+    st.success(f"🎯 Prediction: **{class_names[prediction.item()].capitalize()}**")
+    st.info(f"Confidence: `{confidence.item() * 100:.2f}%`")
