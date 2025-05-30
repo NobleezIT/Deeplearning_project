@@ -42,8 +42,8 @@ To see the complete workflow, check my notebook [here](https://github.com/Noblee
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/NobleezIT/produce_classifier.git
-cd produce_classifier
+git clone https://github.com/NobleezIT/Deeplearning_project.git
+cd Deeplearning_project
 ````
 
 2. **Install dependencies**:
