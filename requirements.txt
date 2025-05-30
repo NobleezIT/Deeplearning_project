@@ -1,5 +1,5 @@
 torch
 torchvision
-gradio
+streamlit
 scikit-learn
 pillow
