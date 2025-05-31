@@ -94,13 +94,6 @@ The project has been deployed using Streamlit for interactive testing. You can t
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-green?logo=streamlit)](https://appuceclassifier-iwm7gakz5j2frwqxyhbunp.streamlit.app/)
 
 
-2. **Run the Streamlit app**:
-
-```bash
-streamlit run app.py
-```
-
-It will launch a web interface where you can upload images and see predictions!
 
 ---
 
