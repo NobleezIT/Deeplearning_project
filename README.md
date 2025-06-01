@@ -106,7 +106,7 @@ We welcome contributions from the community to extend the dataset, enhance the m
 
 Acknowledgements
 ---
-My gratitude goes to Arewa Data Science Academy, most especially our able mentor Mr Mustapha Abdullahi and Dr Shamsuddeen H Muhammad. Special thanks to our mentor Mr. Lukman Jibril Aliyu for his valuable guidance and feedback.
+My gratitude goes to Arewa Data Science Academy, most especially our able mentor Mr Mustapha Abdullahi and Dr Shamsuddeen H Muhammad. Special thanks goes to my mentor Mr. Lukman Jibril Aliyu for his valuable guidance and feedback.
 
 
 
