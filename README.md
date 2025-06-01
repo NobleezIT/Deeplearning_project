@@ -97,6 +97,10 @@ The project has been deployed using Streamlit for interactive testing. You can t
 ---
 The video demonstration can be found [here](https://youtu.be/6V7sUWZ9AMs?si=POkHm9dNFIVtrFQP)
 
+---
+Contributions
+---
+We welcome contributions from the community to extend the dataset, enhance the model's performance, or improve the application's functionality.
 ## 📌 Notes
 
 * All **model weights** are saved in `saved_models/`.
