@@ -95,7 +95,7 @@ The project has been deployed using Streamlit for interactive testing. You can t
 
 
 ---
-For the video demonstration clike [here](https://youtu.be/6V7sUWZ9AMs?si=POkHm9dNFIVtrFQP)
+The video demonstration can be found [here](https://youtu.be/6V7sUWZ9AMs?si=POkHm9dNFIVtrFQP)
 
 ## 📌 Notes
 
