@@ -101,11 +101,13 @@ The video demonstration can be found [here](https://youtu.be/6V7sUWZ9AMs?si=POkH
 Contributions
 ---
 We welcome contributions from the community to extend the dataset, enhance the model's performance, or improve the application's functionality.
-## 📌 Notes
 
-* All **model weights** are saved in `saved_models/`.
-* **TensorBoard logs** are saved in the `logs/` directory.
-* The app depends on the saved model weights (`best_resnet.pth` or `best_efficientnet.pth`).
+--- 
 
+Acknowledgements
 ---
+My gratitude goes to Arewa Data Science Academy, most especially our able mentor Mr Mustapha Abdullahi and Dr Shamsuddeen H Muhammad. Special thanks to our mentor Mr. Lukman Jibril Aliyu for his valuable guidance and feedback.
+
+
+
 
